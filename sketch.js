@@ -7,7 +7,7 @@ var invaderIMG;
 var invaders = [];
 var k;
 
-//check popups 
+//check popups
 var popups = [];
 var mainMenu = true;
 var howToP = false;
@@ -59,7 +59,7 @@ function setup() {
 	fill(220);
 	stroke(0);
 	strokeWeight(2);
-	text('[Play]', windowWidth/2, 550);
+	text('[no u]', windowWidth/2, 550);
 	text('[How To Play]', windowWidth/2, 600)
 	text('[Quit]', windowWidth/2, 650)
 
@@ -102,7 +102,7 @@ function draw() {
 		lvl1.begin();
 		waveNum = 1;
 		ship.show();
-		
+
 		for (var i = 0; i < healthBar.length; i++) {
 			healthBar[i].show();
 		}
@@ -139,7 +139,7 @@ function draw() {
 				}
 			}
 		}
-		
+
 		for (var i = 0; i < invaders.length; i++) {
 			if (invaders[i].y > 850) {
 				invaders.splice(i, 1);
@@ -156,7 +156,7 @@ function draw() {
 		for (var i = 0; i < bullets.length; i++) {
 			bullets[i].show();
 			bullets[i].move();
-			
+
 			//check if hits alien
 			for (var j = 0; j < invaders.length; j++) {
 				if (bullets.length > 0) {
@@ -174,7 +174,7 @@ function draw() {
 				bullets[i].goAway()
 			}
 		}
-		
+
 		//checks for offscreen (can be bypassed but that's cheap lol)
 		if (ship.x > width/2 + 375 - 50) {
 			ship.allowRIGHT = false;
@@ -204,7 +204,7 @@ function draw() {
 		if (ship.x > height/2 - 400 + 50) {
 			ship.allowRIGHT = true;
 		}
-		
+
 		//next wave
 		if (invaders.length == 0 && waveNum == 1 && failed == false) {
 			k = random(1, 12);
