@@ -59,7 +59,7 @@ function setup() {
 	fill(220);
 	stroke(0);
 	strokeWeight(2);
-	text('[no u]', windowWidth/2, 550);
+	text('[Play]', windowWidth/2, 550);
 	text('[How To Play]', windowWidth/2, 600)
 	text('[Quit]', windowWidth/2, 650)
 
@@ -233,15 +233,6 @@ function draw() {
 				popups[i].show();
 			}
 		}
-	} else if (failed && mainMenu == false) {
-
-		if (loss.solution.length > 0) {
-			for (var i = 0; i < loss.solution.length; i++) {
-				loss.inputed += loss.solution[i];
-			}
-		}
-
-		loss.show();
 	}
 }
 
@@ -266,6 +257,146 @@ function keyPressed() {
 		var bullet = new Bullets(ship.x, ship.y);
 		bullets.push(bullet);
 	}
+	if (failed && mainMenu == false) {
+		if (keyCode === 49) {
+			loss.solution.push('1');
+
+			fill(255);
+	        strokeWeight(3);
+			stroke(0);
+			textSize(30);
+			text('1', width/2 - 150 + (loss.solution.length - 1)*20, 320);
+		}
+		if (keyCode === 50) {
+			loss.solution.push('2');
+
+			fill(255);
+	        strokeWeight(3);
+			stroke(0);
+			textSize(30);
+			text('2', width/2 - 150 + (loss.solution.length - 1)*20, 320);
+		}
+		if (keyCode === 51) {
+			loss.solution.push('3');
+
+			fill(255);
+	        strokeWeight(3);
+			stroke(0);
+			textSize(30);
+			text('3', width/2 - 150 + (loss.solution.length - 1)*20, 320);
+		}
+		if (keyCode === 52) {
+			loss.solution.push('4');
+
+			fill(255);
+	        strokeWeight(3);
+			stroke(0);
+			textSize(30);
+			text('4', width/2 - 150 + (loss.solution.length - 1)*20, 320);
+		}
+		if (keyCode === 53) {
+			loss.solution.push('5');
+
+			fill(255);
+	        strokeWeight(3);
+			stroke(0);
+			textSize(30);
+			text('5', width/2 - 150 + (loss.solution.length - 1)*20, 320);
+		}
+		if (keyCode === 54) {
+			loss.solution.push('6');
+
+			fill(255);
+	        strokeWeight(3);
+			stroke(0);
+			textSize(30);
+			text('6', width/2 - 150 + (loss.solution.length - 1)*20, 320);
+		}
+		if (keyCode === 55) {
+			loss.solution.push('7');
+
+			fill(255);
+	        strokeWeight(3);
+			stroke(0);
+			textSize(30);
+			text('7', width/2 - 150 + (loss.solution.length - 1)*20, 320);
+		}
+		if (keyCode === 56) {
+			loss.solution.push('8');
+
+			fill(255);
+	        strokeWeight(3);
+			stroke(0);
+			textSize(30);
+			text('8', width/2 - 150 + (loss.solution.length - 1)*20, 320);
+		}
+		if (keyCode === 57) {
+			loss.solution.push('9');
+
+			fill(255);
+	        strokeWeight(3);
+			stroke(0);
+			textSize(30);
+			text('9', width/2 - 150 + (loss.solution.length - 1)*20, 320);
+		}
+		if (keyCode === 48) {
+			loss.solution.push('0');
+
+			fill(255);
+	        strokeWeight(3);
+			stroke(0);
+			textSize(30);
+			text('0', width/2 - 150 + (loss.solution.length - 1)*20, 320);
+		}
+		if (keyCode === 8) {
+			loss.solution.splice(loss.solution.length -1, 1);
+			rectMode(CENTER);
+			fill(25);
+			noStroke();
+			rect(width/2 - 150 + (loss.solution.length)*20, 310, 20, 30)
+		}
+		if (keyCode === 13) {
+			if (randomSol == 1) {
+				if (loss.solution.length == 1 && loss.solution[0] == 2) {
+					text('CORRECT', width/2, height/2);
+				} else {
+					text('FALSE', width/2, height/2)
+				}
+			}
+
+			if (randomSol == 2) {
+				if (loss.solution.length == 2 && loss.solution[0] == 1 && loss.solution[1] == 2) {
+					text('CORRECT', width/2, height/2);
+				} else {
+					text('FALSE', width/2, height/2)
+				}
+			}
+
+			if (randomSol == 3) {
+				if (loss.solution.length == 1 && loss.solution[0] == 1) {
+					text('CORRECT', width/2, height/2);
+				} else {
+					text('FALSE', width/2, height/2)
+				}
+			}
+
+			if (randomSol == 4) {
+				if (loss.solution.length == 2 && loss.solution[0] == 1 && loss.solution[1] == 2) {
+					text('CORRECT', width/2, height/2);
+				} else {
+					text('FALSE', width/2, height/2)
+				}
+			}
+
+			if (randomSol == 5) {
+				if (loss.solution.length == 1 && loss.solution[0] == 2) {
+					text('CORRECT', width/2, height/2);
+				} else {
+					text('FALSE', width/2, height/2)
+				}
+			}
+		}
+	}
 }
 
 function keyReleased() {
@@ -280,7 +411,7 @@ function keyReleased() {
 
 
 function mouseClicked() {
-//quit button
+	//quit button
 	if (mouseX > width/2 - 45 && mouseX < width/2 + 45) {
 		if (mouseY > 625 && mouseY < 660) {
 			if (mainMenu) {
@@ -325,66 +456,52 @@ function mouseClicked() {
 		levelsP = false;
 	}
 	if (failed) {
-		if (mouseX > width/2 - 100 - 15 && mouseX < width/2 - 100 + 15) {
-			if (mouseY > 290 - 15 && mouseY < 290 + 15) {
-				loss.solution.push('1');
-			}
-		}
-		if (mouseX > width/2 - 70 - 15 && mouseX < width/2 - 70 + 15) {
-			if (mouseY > 290 - 15 && mouseY < 290 + 15) {
-				loss.solution.push('2');
-			}
-		}
-		if (mouseX > width/2 - 40 - 15 && mouseX < width/2 - 40 + 15) {
-			if (mouseY > 290 - 15 && mouseY < 290 + 15) {
-				loss.solution.push('3');
-			}
-		}
-		if (mouseX > width/2 - 10 - 15 && mouseX < width/2 - 10 + 15) {
-			if (mouseY > 290 - 15 && mouseY < 290 + 15) {
-				loss.solution.push('4');
-			}
-		}
-		if (mouseX > width/2 + 20 - 15 && mouseX < width/2 + 20 + 15) {
-			if (mouseY > 290 - 15 && mouseY < 290 + 15) {
-				loss.solution.push('5');
-			}
-		}
-		if (mouseX > width/2 + 50 - 15 && mouseX < width/2 + 50 + 15) {
-			if (mouseY > 290 - 15 && mouseY < 290 + 15) {
-				loss.solution.push('6');
-			}
-		}
-		if (mouseX > width/2 + 80 - 15 && mouseX < width/2 + 80 + 15) {
-			if (mouseY > 290 - 15 && mouseY < 290 + 15) {
-				loss.solution.push('7');
-			}
-		}
-		if (mouseX > width/2 + 110 - 15 && mouseX < width/2 + 110 + 15) {
-			if (mouseY > 290 - 15 && mouseY < 290 + 15) {
-				loss.solution.push('8');
-			}
-		}
-		if (mouseX > width/2 + 140 - 15 && mouseX < width/2 + 140 + 15) {
-			if (mouseY > 290 - 15 && mouseY < 290 + 15) {
-				loss.solution.push('9');
-			}
-		}
-		if (mouseX > width/2 + 170 - 15 && mouseX < width/2 + 170 + 15) {
-			if (mouseY > 290 - 15 && mouseY < 290 + 15) {
-				loss.solution.push('0');
-			}
-		}
 		if (mouseX > width/2 + 250 - 65 && mouseX < width/2 + 250 + 65) {
-			if (mouseY > 290 - 15 && mouseY < 290 + 15) {
-				solutionSubmitted = true;
+
+				if (randomSol == 1) {
+					if (loss.solution.length == 1 && loss.solution[0] == 2) {
+						text('CORRECT', width/2, height/2);
+					} else {
+						text('FALSE', width/2, height/2)
+					}
+				}
+
+				if (randomSol == 2) {
+					if (loss.solution.length == 2 && loss.solution[0] == 1 && loss.solution[1] == 2) {
+						text('CORRECT', width/2, height/2);
+					} else {
+						text('FALSE', width/2, height/2)
+					}
+				}
+
+				if (randomSol == 3) {
+					if (loss.solution.length == 1 && loss.solution[0] == 1) {
+						text('CORRECT', width/2, height/2);
+					} else {
+						text('FALSE', width/2, height/2)
+					}
+				}
+
+				if (randomSol == 4) {
+					if (loss.solution.length == 2 && loss.solution[0] == 1 && loss.solution[1] == 2) {
+						text('CORRECT', width/2, height/2);
+					} else {
+						text('FALSE', width/2, height/2)
+					}
+				}
+
+				if (randomSol == 5) {
+					if (loss.solution.length == 1 && loss.solution[0] == 2) {
+						text('CORRECT', width/2, height/2);
+					} else {
+						text('FALSE', width/2, height/2)
+					}
+				}
 			}
 		}
 		if (mouseX > width/2 + 225 - 87.5 && mouseX < width/2 + 225 + 87.5) {
 			if (mouseY > 252.5 - 17.5 && mouseY < 252.5 + 17.5) {
 				loss.solution.splice(loss.solution.length -1, 1);
-				loss.inputed -= loss.solution[i];
 			}
 		}
-	}
 }
