@@ -45,7 +45,7 @@ function setup() {
 	var rectx = (width/2) - (750/2);
 	var recty = (height/2) - (800/2);
 
-	fill(25);
+	fill(30);
 	strokeWeight(10);
 	rect(rectx, recty, 750, 800);
 
